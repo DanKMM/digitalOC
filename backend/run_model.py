@@ -23,8 +23,8 @@ def train_run_models() -> Dict[str, Dict[str, Any]]:
     # 1. data loading
     try:
         pbp_files: List[pd.DataFrame] = [
-            pd.read_csv("Data/pbp_2024_0.csv", low_memory=False),
-            pd.read_csv("Data/pbp_2024_1.csv", low_memory=False),
+            pd.read_csv("backend/Data/pbp_2024_0.csv", low_memory=False),
+            pd.read_csv("backend/Data/pbp_2024_1.csv", low_memory=False),
         ]
         df: pd.DataFrame = pd.concat(pbp_files, ignore_index=True)
     except FileNotFoundError:
@@ -40,7 +40,7 @@ def train_run_models() -> Dict[str, Dict[str, Any]]:
     # 1b. OPTIONAL participation / personnel merge
     try:
         part_df: pd.DataFrame = pd.read_csv(
-            "Data/pbp_participation_2024.csv",
+            "backend/Data/pbp_participation_2024.csv",
             low_memory=False,
         )
     except FileNotFoundError:
